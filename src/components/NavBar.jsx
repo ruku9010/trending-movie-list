@@ -40,7 +40,7 @@ const NavBar = () => {
             {links}
           </ul>
         </div>
-        <a className="btn btn-ghost text-2xl">Movie<span className="text-red-700">Explorer</span></a>
+        <a href="http://localhost:5173/" className="btn btn-ghost text-2xl">Movie<span className="text-[#422ad5]">Explorer</span></a>
       </div>
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1">{links}</ul>
