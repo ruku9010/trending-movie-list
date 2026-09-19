@@ -1,12 +1,18 @@
-const NavBar = () => {
+import { Link } from "react-router";
 
+const NavBar = () => {
   const links = (
     <>
       <li>
-        <a className=" font-semibold" href="http://localhost:5173/">Home</a>
+        <Link to="/" className="font-semibold">
+          Home
+        </Link>
       </li>
+
       <li>
-        <a className=" font-semibold" href="http://localhost:5173/movie-list">Movies</a>
+        <Link to="/movie-list" className="font-semibold">
+          Movies
+        </Link>
       </li>
     </>
   );
@@ -14,8 +20,14 @@ const NavBar = () => {
   return (
     <div className="navbar bg-base-100 shadow-sm">
       <div className="navbar-start">
+        
+        {/* Mobile Menu */}
         <div className="dropdown">
-          <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
+          <div
+            tabIndex={0}
+            role="button"
+            className="btn btn-ghost lg:hidden"
+          >
             <svg
               aria-label="Menu"
               xmlns="http://www.w3.org/2000/svg"
@@ -24,15 +36,15 @@ const NavBar = () => {
               viewBox="0 0 24 24"
               stroke="currentColor"
             >
-              {" "}
               <path
                 strokeLinecap="round"
                 strokeLinejoin="round"
                 strokeWidth="2"
                 d="M4 6h16M4 12h8m-8 6h16"
-              />{" "}
+              />
             </svg>
           </div>
+
           <ul
             tabIndex={-1}
             className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow"
@@ -40,13 +52,25 @@ const NavBar = () => {
             {links}
           </ul>
         </div>
-        <a href="http://localhost:5173/" className="btn btn-ghost text-2xl">Movie<span className="text-[#422ad5]">Explorer</span></a>
+
+        {/* Logo */}
+        <Link to="/" className="btn btn-ghost text-2xl">
+          Movie<span className="text-[#422ad5]">Explorer</span>
+        </Link>
       </div>
+
+      {/* Desktop Menu */}
       <div className="navbar-center hidden lg:flex">
-        <ul className="menu menu-horizontal px-1">{links}</ul>
+        <ul className="menu menu-horizontal px-1">
+          {links}
+        </ul>
       </div>
+
+      {/* Movies Button */}
       <div className="navbar-end">
-        <a href="http://localhost:5173/movie-list" className="btn btn-primary">Movies</a>
+        <Link to="/movie-list" className="btn btn-primary">
+          Movies
+        </Link>
       </div>
     </div>
   );
