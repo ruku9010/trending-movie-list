@@ -1,13 +1,36 @@
 
-import './App.css'
+import { createBrowserRouter} from "react-router";
+import { RouterProvider } from "react-router/dom";
+import MainLayout from "./layouts/Mainlayout";
+import Home from "./pages/Home";
+import MovieList from "./pages/MovieList";
+const router = createBrowserRouter([
+  {
+    path: "/",
+    Component: MainLayout,
+    children: [
+      {
+        index: true,
+        element: <Home />,
+      },
+      {
+    path: "movie-list",
+    element: <MovieList />
+  },
+    ]
+  },
+  
+  
+]);
 
-function App() {
+function Router() {
 
   return (
    <>
-   
+   <RouterProvider router={router} />
    </>
+   
   )
 }
 
-export default App
+export default Router;
